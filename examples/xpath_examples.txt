@@ -1,0 +1,29 @@
+# XPath examples and expected element text (sample.html)
+
+1) Absolute-style brittle example (may break if DOM changes)
+XPath: //html/body/div[2]/div[1]/form/input[2]
+Expected: (often nothing in this sample — demonstrates brittleness)
+
+2) Robust: anchor by label + axis
+XPath: //label[normalize-space()='Username']/following-sibling::input[1]
+Expected element value / text: input element with id="user_123" (value="alice")
+
+3) Robust: normalize-space to handle messy whitespace
+XPath: //button[normalize-space()='Submit']
+Expected element text: "Submit"
+
+4) Dynamic-id partial match (starts-with)
+XPath: //input[starts-with(@id,'user_')]
+Expected: matches input id="user_123"
+
+5) Combined conditions (precise targeting)
+XPath: //a[@role='button' and contains(@href,'/checkout') and normalize-space()='Buy now']
+Expected element text: "Buy now"
+
+6) Ancestor axis example (navigating up)
+XPath: //div[contains(@class,'card')]/ancestor::section[1]
+Expected: selects the containing <section id="demo-section">
+
+Notes:
+- Use $x("...") in Chrome DevTools Console to evaluate these XPaths quickly.
+- The demo HTML contains deliberate wrapper div to illustrate the difference between brittle absolute paths and robust relative/anchor locators.

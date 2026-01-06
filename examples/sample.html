@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>XPath Demo Sample</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; }
+    .card { border: 1px solid #ddd; padding: 12px; margin: 8px 0; }
+    .wrapper { padding: 6px; }
+  </style>
+</head>
+<body>
+  <section id="demo-section">
+    <div class="wrapper"> <!-- wrapper intentionally present to show brittleness of absolute path -->
+      <div class="container">
+        <label>Username</label>
+        <input id="user_123" type="text" value="alice" />
+
+        <label> Password </label>
+        <input id="pass_456" type="password" />
+
+        <button class="btn primary"> Submit </button>
+
+        <div class="card item-42 active">
+          <a href="/checkout" role="button"> Buy now </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
